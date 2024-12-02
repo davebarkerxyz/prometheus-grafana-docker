@@ -1,0 +1,22 @@
+global:
+  scrape_interval: 15s
+scrape_configs:
+  - job_name: 'prometheus'
+    scheme: https
+    tls_config:
+      ca_file: /certs/prometheus-ca.pem
+    basic_auth:
+      username: prometheus
+      password: PROMETHEUS_PASSWORD
+    static_configs:
+      - targets: ['localhost:9090']
+  - job_name: 'monitoring-node-exporter'
+    scheme: https
+    tls_config:
+      ca_file: /certs/monitoring-node-exporter-ca.pem
+    basic_auth:
+      username: node-exporter
+      password: NODE_EXPORTER_PASSWORD
+    static_configs:
+      - targets: ['monitoring-node-exporter:9100']
+

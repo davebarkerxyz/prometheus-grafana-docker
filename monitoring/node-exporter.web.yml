@@ -1,0 +1,5 @@
+basic_auth_users:
+    node-exporter: HASHED_PASSWORD
+tls_server_config:
+  cert_file: /certs/monitoring-node-exporter.pem
+  key_file: /certs/monitoring-node-exporter-key.pem
